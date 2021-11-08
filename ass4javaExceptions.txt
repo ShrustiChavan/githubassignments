@@ -1,0 +1,122 @@
+1.package shrujava;
+
+class exception{
+public static void main(String args[]){  
+	   try{  
+	      //code that may raise exception  
+	      int data=100/0;  
+	   }catch(ArithmeticException e)
+	   {System.out.println(e);}  
+	   System.out.println("rest of the code...");  
+	  }  
+	}  
+
+2.package shrujava;
+
+public class unsupportedexp {
+			  public static void main(String[] args) {
+		      List aList = new ArrayList();
+		      aList.add('a');
+		      aList.add('b');
+		      List newList = Collections.unmodifiableList(aList);
+		      newList.add('c');
+		   }
+		}
+
+3.import java.util.Scanner;
+
+class MinimumAccountBalance extends Exception {
+
+    String message;
+
+    public MinimumAccountBalance(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return message;
+    }
+}
+
+public class UserDefinedException {
+
+    static double current_balance = 100;
+public static void main(String[] args) throws MinimumAccountBalance {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter amount to withdrawal");
+        int n = s.nextInt();
+        try {
+            if (current_balance < n) {
+                throw new MinimumAccountBalance("Insufficient funds ! your Current balance is " + current_balance);
+            } else {
+                System.out.println("Please Take The Money : " + n);
+            }
+
+        } catch (MinimumAccountBalance mab) {
+            mab.printStackTrace();
+        }
+    }
+
+}
+
+Case I:
+
+Enter amount to withdrawal
+200
+Insufficient funds ! your Current balance is 100.0
+
+Case II:
+
+Enter amount to withdrawal
+90
+Please Take The Money : 90
+
+b)import java.util.Scanner;
+
+class MinimumAccountBalance extends Exception {
+
+    String message;
+
+    public MinimumAccountBalance(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return message;
+    }
+}
+
+public class UserDefinedException {
+
+    static double current_balance = 100;
+public static void main(String[] args) throws MinimumAccountBalance {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter amount to withdrawal");
+        int n = s.nextInt();
+        try {
+            if (current_balance < n) {
+                throw new MinimumAccountBalance("IllegalBankTransactionException! your Current balance is " + current_balance);
+            } else {
+                System.out.println("Please Take The Money : " + n);
+            }
+
+        } catch (MinimumAccountBalance mab) {
+            mab.printStackTrace();
+        }
+    }
+
+}
+
+Case I:
+
+Enter amount to withdrawal
+-1000
+IllegalBankTransactionException! your Current balance is 100.0
+
+Case II:
+
+Enter amount to withdrawal
+90
+Please Take The Money : 90

@@ -1,0 +1,416 @@
+1.
+class Singleton {
+	// Static variable single_instance of type Singleton
+	private static Singleton single_instance = null;
+
+	// Declaring a variable of type String
+	public String s;
+
+	// Constructor of this class
+	// Here private constructor is is used to
+	// restricted to this class itself
+	private Singleton()
+	{
+		s = "Hello I am a string part of Singleton class";
+	}
+
+	// Method
+	// Static method to create instance of Singleton class
+	public static Singleton Singleton()
+	{
+		// To ensure only one instance is created
+		if (single_instance == null) {
+			single_instance = new Singleton();
+		}
+		return single_instance;
+	}
+}
+
+class GFG {
+	
+	public static void main(String args[])
+	{
+		// Instantiating Singleton class with variable x
+		Singleton x = Singleton.Singleton();
+
+		// Instantiating Singleton class with variable y
+		Singleton y = Singleton.Singleton();
+
+		// instantiating Singleton class with variable z
+		Singleton z = Singleton.Singleton();
+
+		// Now changing variable of instance x
+		// via toUpperCase() method
+		x.s = (x.s).toUpperCase();
+
+		// Print and display commands
+		System.out.println("String from x is " + x.s);
+		System.out.println("String from y is " + y.s);
+		System.out.println("String from z is " + z.s);
+		System.out.println("\n");
+
+		// Now again changing variable of instance x
+		z.s = (z.s).toLowerCase();
+
+		System.out.println("String from x is " + x.s);
+		System.out.println("String from y is " + y.s);
+		System.out.println("String from z is " + z.s);
+	}
+}
+
+2.package shrujava;
+
+public abstract class shapes {
+   public abstract void draw();
+
+ public static void main(String[] args)
+ {
+	 line l = new line();
+	 rectangle r = new rectangle();
+	 cube c = new cube();
+	 l.draw();
+	 r.draw();
+	 c.draw();
+ }
+}
+
+public class line extends shapes {
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		System.out.println("____ ");
+	}
+	
+
+}
+
+public class rectangle extends shapes {
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		System.out.println("[____]");
+	}
+
+}
+
+public class cube extends shapes {
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		System.out.println("drawing cube");
+	}
+	
+
+}
+
+3.package shrujava;
+
+public class bank {
+    public static void main(String[] args) {
+      SavingAccount savingaccount = new SavingAccount(10000,600);
+      CurrentAccount currentaccount = new CurrentAccount(1000,300);
+      savingaccount.totalAmt();
+      currentaccount.totalAmt();
+      double totalbankbal = savingaccount.totalAmt()+currentaccount.totalAmt();
+      System.out.println("total cash in the bank:"+ totalbankbal);
+    }
+}
+  
+
+public class SavingAccount extends bank{
+	   private double fixedDeposit;
+	   private double balance;
+	   
+public SavingAccount(double fixedDeposit, double balance)
+{
+	this.fixedDeposit=fixedDeposit;
+	this.balance=balance;
+}
+ public double totalAmt() {
+	 double Savingsval=fixedDeposit+balance;
+	 System.out.println("totalamount:" + Savingsval);
+ }
+}
+
+public class CurrentAccount extends bank{
+	private double cashcredit;
+	private double balance;
+	
+public CurrentAccount(double cashcredit,double balance) {
+	this.balance=balance;
+	this.cashcredit=cashcredit;
+}
+public double totalAmt() {
+	double currentbal = cashcredit+balance;
+	System.out.println("total amount:"+currentbal);
+}
+}
+
+5.public abstract class employee {
+      
+	public abstract void totalSalary();
+
+ public static void main(String[] args) {
+	 manager m = new manager();
+	 labor l = new labor();
+	 m.totalSalary();
+	 l.totalSalary();
+ } 
+  
+}
+public class manager extends employee {
+
+	@Override
+	public void totalSalary() {
+		int salary = 10000;
+		int incentive = 5000;
+		int totSalary = salary + incentive ;
+		System.out.println(" total salary of manages is :" + totSalary);
+	}
+ 
+}
+public class labor extends employee {
+
+	@Override
+	public void totalSalary() {
+		int sal = 5000;
+		int ot = 3000;
+		int totSal = sal + ot ;
+		System.out.println("total salary of labor is :"+ totSal);
+		
+	}
+   
+}
+
+7.
+package shrujava;
+
+
+public abstract class DessertItem {
+protected String name;
+
+public DessertItem()
+{
+name = "";
+}
+
+public DessertItem(String name1)
+{
+name = name1;
+}
+
+public String getName()
+{
+return name;
+}
+
+public void setName(String name1)
+{
+name = name1;
+}
+
+public abstract double getCost();
+}
+
+
+Candy.java
+
+
+public class Candy extends DessertItem {
+private double weight;
+private double pricePerPound;
+
+
+public Candy()
+{
+super();
+weight = 0;
+pricePerPound = 0;
+}
+
+public Candy(String name, double w, double prc)
+{
+super(name);
+weight = w;
+pricePerPound = prc;
+}
+
+
+public double getWeight() {
+return weight;
+}
+
+public void setWeight(double weight) {
+this.weight = weight;
+}
+
+public double getPricePerPound() {
+return pricePerPound;
+}
+
+public void setPricePerPound(double pricePerPound) {
+this.pricePerPound = pricePerPound;
+}
+
+@Override
+public double getCost() {
+double total = weight * pricePerPound;
+total = Math.round(total * 100);
+return total;
+}
+
+
+public String toString()
+{
+String s = String.format("%-50s $%.2f\n\t %.2f lbs @ $.2f", getName(), getCost()/100, weight, pricePerPound);
+return s;
+}
+}
+
+
+//Cookie.java
+
+
+public class Cookie extends DessertItem {
+private int quantity;
+private double pricePerDozen;
+
+
+public Cookie()
+{
+super();
+quantity = 0;
+pricePerDozen = 0;
+}
+
+public Cookie(String name, int qty, double prc)
+{
+super(name);
+quantity = qty;
+pricePerDozen = prc;
+}
+
+
+public int getQuantity() {
+return quantity;
+}
+
+
+public double getPricePerDozen() {
+return pricePerDozen;
+}
+
+public void setPricePerDozen(double pricePerDozen) {
+this.pricePerDozen = pricePerDozen;
+}
+
+public void setQuantity(int quantity) {
+this.quantity = quantity;
+}
+
+@Override
+public double getCost() {
+double total = pricePerDozen / 12 * quantity;
+total = Math.round(total * 100);
+return total;
+}
+
+
+public String toString()
+{
+String s = String.format("%-50s $%.2f\n\t %d cookies @ $%.2f per Dozen", getName(), getCost()/100, quantity, pricePerDozen);
+return s;
+}
+}
+
+IceCream.java
+
+
+public class IceCream extends DessertItem{
+private int numberOfScoops;
+private double pricePerScoop;
+private double toppingPrice;
+
+public IceCream() {
+super();
+numberOfScoops = 0;
+pricePerScoop = 0;
+toppingPrice = 0;
+
+}
+
+public IceCream(String name, int scoops, double prcPerScoop, double toppings)
+{
+super(name);
+numberOfScoops = scoops;
+pricePerScoop = prcPerScoop;
+toppingPrice = toppings;
+}
+
+
+public int getNumberOfScoops() {
+return numberOfScoops;
+}
+
+public void setNumberOfScoops(int numberOfScoops) {
+this.numberOfScoops = numberOfScoops;
+}
+
+public double getPricePerScoop() {
+return pricePerScoop;
+}
+
+public void setPricePerScoop(double pricePerScoop) {
+this.pricePerScoop = pricePerScoop;
+}
+
+public double getToppingPrice() {
+return toppingPrice;
+}
+
+public void setToppingPrice(double toppingPrice) {
+this.toppingPrice = toppingPrice;
+}
+
+@Override
+public double getCost() {
+double total = (numberOfScoops * pricePerScoop + toppingPrice);
+return Math.round(100 * total );
+}
+
+public String toString()
+{
+String s = String.format("%-50s $%.2f\n\t %d scoops @ $%.2f/scoop + $%.2f", getName(), getCost()/100, numberOfScoops, pricePerScoop, toppingPrice);
+return s;
+}
+}
+
+//DessertShop.java
+
+
+public class DessertShop {
+public static void main(String[] args) {
+Candy item1 = new Candy("Peanut Butter Fudge", 2.25, 3.99);
+Cookie item2 = new Cookie("Oatmeal Raisin Cookies", 4, 3.99);
+IceCream item3 = new IceCream("Vanilla Ice Cream", 2, 1.05, 0.45);
+
+System.out.println(item1);
+System.out.println(item2);
+System.out.println(item3);
+
+}
+}
+
+
+//output
+
+Peanut Butter Fudge $8.98
+2.25 lbs @ $.2f
+Oatmeal Raisin Cookies $1.33
+4 cookies @ $3.99 per Dozen
+Vanilla Ice Cream $2.55
+2 scoops @ $1.05/scoop + $0.45
+

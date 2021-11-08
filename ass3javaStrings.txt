@@ -1,0 +1,131 @@
+1.package shrujava;
+
+public class string1 {
+	
+	public static void main(String[] args)
+	{
+		String str = "Hello World";
+		str.length();
+		System.out.println("length of string is " + str.length());
+	}
+
+}
+
+2.package shrujava;
+
+public class string2 {
+ 
+	public static void main(String[] args)
+	{
+		String s1 = "Hello";
+		String s2 = " How are you";
+		//String s3= s1.concat(s2);
+		//System.out.println(s3);
+	System.out.println(s1+" "+ "&" +" " + s2);
+	}
+}
+ 
+3.package shrujava;
+
+public class string3 {
+
+	public static void main(String[] args) {
+	//String s1 ="Java string pool refers to collections of strings which are stored in heap memory";
+		//String s1lower = s1.toLowerCase();
+		//System.out.println(s1lower);
+		//String s1upper = s1.toUpperCase();
+		//System.out.println(s1upper);
+		//String replaceString = s1.replace('a','$');
+		//System.out.println(replaceString);
+		//System.out.println(s1.contains("collection"));//it will return boolean output
+		//String s2 ="Java string pool refers to collections of strings which are stored in heap memory";
+		//System.out.println(s1.equals(s2));
+		String s1 ="hello";
+		String s2 ="HELLO";
+		System.out.println(s1.equalsIgnoreCase(s2));
+
+	}
+}
+
+4.package shrujava;
+
+public class Stringbuffer {
+
+	public static void main(String[] args) {
+		StringBuffer str = new StringBuffer("StringBuffer");
+		str.append(" , is a peer class of string");
+		str.append(" , that provides much of,"); 
+        str.append(" the functionality of strings");
+		System.out.println(str);
+	}
+
+}
+
+5.package shrujava;
+
+public class stringbuffer2 {
+	
+	public static void main(String[] args)
+	{
+		StringBuffer line = new StringBuffer("it is used to_ at the specified index position");
+		line.insert(14,"build");
+		System.out.println(line);
+	}
+
+}
+
+6.package shrujava;
+
+public class stringbuffer3 {
+	
+	public static void main(String [] args)
+	{
+		StringBuffer str = new StringBuffer("This method returns the reversed object on which it was called");
+		System.out.println("Original string:" + str);
+		str.reverse();
+		System.out.println("Reversed string:" + str);
+	}
+
+}
+
+7.package shrujava;
+
+public class stringbuilder {
+
+	public static void main(String[] args) {
+		
+		StringBuilder sb = new StringBuilder("StringBuffer");
+		sb.append(",is a peer class of string,that provides much of, the functionality of strings ");
+		System.out.println(sb);
+	
+
+	}
+
+}
+
+8.package shrujava;
+
+public class stringbuilder2 {
+
+	public static void main(String[] args) {
+		StringBuilder sb = new StringBuilder("it is used to_ at the specified index position");
+		sb.insert(14, "build");
+		System.out.println(sb);
+	}
+
+}
+
+9.package shrujava;
+
+public class stringbuilder3 {
+
+	public static void main(String[] args) {
+		StringBuilder sb = new StringBuilder("this method returns object on which it was called");
+		sb.reverse();
+		System.out.println(sb);
+
+	}
+
+}
+
+      
